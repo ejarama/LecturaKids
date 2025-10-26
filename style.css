@@ -6,8 +6,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
+    padding: 20px;
 }
 
 .container {
@@ -16,7 +17,8 @@ body {
     border-radius: 25px;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
     text-align: center;
-    max-width: 500px;
+    width: 100%;
+    max-width: 600px;
 }
 
 h1 {
@@ -24,12 +26,48 @@ h1 {
     margin-bottom: 20px;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
 .frase {
     color: #444;
     font-size: 1.2rem;
-    margin: 20px 0;
+    margin: 0;
     line-height: 1.6;
     min-height: 100px;
+}
+
+.imagen-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.imagen-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.imagen-container a {
+    color: #6ec1e4;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 2px solid #6ec1e4;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.imagen-container a:hover {
+    background: #6ec1e4;
+    color: white;
 }
 
 button {
@@ -41,6 +79,7 @@ button {
     padding: 12px 30px;
     cursor: pointer;
     transition: background 0.3s;
+    margin-top: 10px;
 }
 
 button:hover {

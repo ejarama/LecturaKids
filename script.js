@@ -1,4 +1,5 @@
-const frases = [
+// Inline fallback phrases (kept for backward compatibility).
+const inlineFrases = [
 `🐱 ** El gato curioso **  
 
 El gato salta por el jardín.  
@@ -271,11 +272,153 @@ Cierro los ojos, pienso en volar,
 a un mundo nuevo quiero llegar.
 Con mis amigos voy a jugar,
 ¡qué lindo es siempre imaginar!`
-
-
 ];
 
+// Loaded phrases will be objects: { id, title, text, emoji, image }
+let frasesData = null;
+
+async function generatePagePNG(obj) {
+  // Create a printable canvas with title, text and optional image
+  const width = 1200;
+  const height = 1700;
+  const canvas = document.createElement('canvas');
+  canvas.width = width;
+  canvas.height = height;
+  const ctx = canvas.getContext('2d');
+
+  // White background
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, width, height);
+
+  // Title
+  const titleText = (obj.emoji ? obj.emoji + ' ' : '') + (obj.title || '');
+  ctx.fillStyle = '#333333';
+  ctx.textAlign = 'center';
+  ctx.font = '700 48px Fredoka, sans-serif';
+  ctx.fillText(titleText, width / 2, 100);
+
+  // Body text
+  ctx.font = '400 28px Fredoka, sans-serif';
+  const lines = obj.text ? obj.text.split('\n') : [];
+  const lineHeight = 40;
+  let y = 160;
+  for (let i = 0; i < lines.length; i++) {
+    ctx.fillText(lines[i], width / 2, y + i * lineHeight);
+  }
+
+  // Image area (if present) - draw centered below text
+  const imageTop = y + lines.length * lineHeight + 30;
+  if (obj.image) {
+    try {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      const imgLoaded = new Promise((resolve, reject) => {
+        img.onload = () => resolve();
+        img.onerror = () => reject(new Error('Failed to load image'));
+      });
+      img.src = obj.image;
+      await imgLoaded;
+
+      const maxImgWidth = width - 160;
+      let drawWidth = img.width;
+      let drawHeight = img.height;
+      if (drawWidth > maxImgWidth) {
+        const ratio = maxImgWidth / drawWidth;
+        drawWidth = Math.round(drawWidth * ratio);
+        drawHeight = Math.round(drawHeight * ratio);
+      }
+      const drawX = Math.round((width - drawWidth) / 2);
+      const drawY = imageTop;
+      ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
+    } catch (e) {
+      // If image load fails, ignore and continue
+      console.warn('No se pudo cargar la imagen para descargar la página:', e);
+    }
+  }
+
+  // Convert to blob and trigger download
+  const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  const fname = (obj.id ? obj.id : (obj.title || 'frase')).replace(/[^a-z0-9_-]/gi, '_') + '.png';
+  a.download = fname;
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  URL.revokeObjectURL(url);
+}
+
+function renderFraseObject(obj) {
+  // Render text content
+  const container = document.getElementById('frase');
+  const title = obj.title ? `<strong>${obj.title}</strong>` : '';
+  const emoji = obj.emoji ? `${obj.emoji} ` : '';
+  const paragraphs = obj.text ? obj.text.split('\n').map(p => `<div>${p}</div>`).join('') : '';
+  container.innerHTML = `${emoji} ${title}<br/>${paragraphs}`;
+
+  // Handle image and download button
+  const imageContainer = document.getElementById('imagen-container');
+  imageContainer.innerHTML = '';
+  if (obj.image) {
+    const img = document.createElement('img');
+    img.src = obj.image;
+    img.alt = obj.title || 'Ilustración';
+
+    const btn = document.createElement('a');
+    btn.href = '#';
+    btn.textContent = '⬇️ Descargar página';
+    btn.addEventListener('click', async (e) => {
+      e.preventDefault();
+      await generatePagePNG(obj);
+    });
+
+    imageContainer.appendChild(img);
+    imageContainer.appendChild(btn);
+    imageContainer.style.display = 'flex';
+  } else {
+    imageContainer.style.display = 'none';
+  }
+}function renderSimpleText(text) {
+    document.getElementById('frase').innerHTML = text;
+}
+
+function pickRandomInline() {
+    if (!inlineFrases || inlineFrases.length === 0) return '';
+    return inlineFrases[Math.floor(Math.random() * inlineFrases.length)];
+}
+
+function pickRandomFromData() {
+    if (!frasesData || frasesData.length === 0) return null;
+    return frasesData[Math.floor(Math.random() * frasesData.length)];
+}
+
+// Attempt to fetch JSON; if it fails, we'll fall back to inlineFrases.
+fetch('data/frases.json')
+    .then(res => {
+        if (!res.ok) throw new Error('No JSON');
+        return res.json();
+    })
+    .then(json => {
+        // Normalize: accept array of objects or transform legacy strings
+        if (Array.isArray(json) && json.length > 0 && typeof json[0] === 'object') {
+            frasesData = json;
+        }
+    })
+    .catch(() => {
+        // keep frasesData null to signal fallback
+        frasesData = null;
+    });
+
 document.getElementById('btnLeer').addEventListener('click', () => {
-    const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)];
-    document.getElementById('frase').innerHTML = fraseAleatoria;
+    // Prefer structured JSON data if available
+    const obj = pickRandomFromData();
+    if (obj) {
+        renderFraseObject(obj);
+        return;
+    }
+
+    // Fallback to legacy inline phrases
+    const texto = pickRandomInline();
+    renderSimpleText(texto);
 });

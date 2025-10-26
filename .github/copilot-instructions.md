@@ -12,14 +12,21 @@ This repository is a tiny static single-page site (Spanish) that displays short 
 ## What the code does (big picture)
 
 - `index.html` contains the UI shell and includes `style.css` and `script.js`. The page has a single button (id "btnLeer") and a display area (id "frase").
-- `script.js` holds a single top-level array called `frases` (multi-line template literals) and attaches a click handler to the button with id "btnLeer". The handler picks a random entry and writes it into the element with id "frase" using `innerHTML`.
+- `script.js` currently loads phrases from `data/frases.json` when present and falls back to an inline list of template-literal strings for backwards compatibility. When JSON is present it expects objects with `title`, `text`, optional `emoji` and optional `image` fields. The handler picks a random entry and renders title, emoji, stanza lines and (if present) provides an image download link.
 - `style.css` contains visual styling and imports the Google font used by the app.
 
 ## Code patterns & conventions (project-specific)
 
-- Phrase storage: multi-line template literals inside the `frases` array. Keep backtick-delimited template literals when adding new phrases. Pattern: emoji + bold-like title markers (`** Title **`) + blank line + stanza lines.
-- Rendering: `innerHTML` is used intentionally to allow emoji and simple inline bold markers. The project does not sanitize strings in the `frase` element; do not insert untrusted input into that element.
-- Randomization: selection uses `Math.floor(Math.random() * frases.length)`. If you change it, guard for empty arrays to avoid writing undefined.
+- New phrase storage: `data/frases.json` is an array of objects. Each object should use this shape (fields marked optional):
+
+	- `id` (string): short machine-friendly id (e.g., "gato-curioso").
+	- `title` (string): human title, e.g., "El gato curioso".
+	- `text` (string): stanza lines separated by `\n`.
+	- `emoji` (string, optional): emoji prefix, e.g., "🐱".
+	- `image` (string, optional): relative path to a downloadable image (e.g., "images/gato.png").
+
+- Backwards compatibility: if `data/frases.json` cannot be fetched or is missing, `script.js` uses the legacy inline array (`inlineFrases`) and renders the original multi-line strings into the `frase` element.
+- Rendering: `innerHTML` is used intentionally to support emoji, simple bold title rendering, and an image download link. Do not insert untrusted user input into the `frase` element without sanitization.
 
 ## Developer workflows (how to run/test locally)
 
@@ -32,7 +39,7 @@ python -m http.server 8000
 # then open http://localhost:8000 in your browser
 ```
 
-3) Debugging: use browser DevTools. Put a breakpoint inside the click handler in `script.js` or inspect the `frases` array from the console.
+3) Debugging: use browser DevTools. Put a breakpoint inside the click handler in `script.js` or inspect the `frasesData` / `inlineFrases` variables from the console.
 
 ## Tests, CI, and builds
 
@@ -41,22 +48,25 @@ python -m http.server 8000
 ## Safe edit checklist for agents
 
 - Keep files encoded in UTF-8 and preserve emoji and Spanish accents.
-- When adding phrases: use backtick template literals and keep stanza spacing consistent with existing entries.
-- If switching from `innerHTML` to `textContent`, remove or transform inline bold markers (`**`) because `textContent` won't render them; consider a small markdown-to-HTML sanitizer if you need lightweight formatting safely.
-- Always check `frases.length > 0` before computing a random index.
+- When adding phrases to `data/frases.json`, follow the schema above. Use `\n` inside `text` to separate stanza lines.
+- If you change rendering from `innerHTML` to `textContent`, remove or transform inline bold markers because `textContent` won't render them; consider a small markdown-to-HTML sanitizer if you need lightweight formatting safely.
+- When adding image files, place them under an `images/` folder and reference them with a relative path in `image`. The page will render a "Descargar dibujo" link if `image` is present.
 
 ## Integration points & extension notes
 
 - External assets: `style.css` imports Google Fonts over the network; offline rendering will fallback to the system sans-serif.
-- If phrase content grows or needs localization, migrate phrases into a static `data/frases.json` and fetch them at runtime from `script.js`.
+- If you need advanced localization or many phrases, consider splitting `data/frases.json` into per-language files (e.g., `data/frases.es.json`) and adding a small loader in `script.js`.
 
 ## Files to inspect for context
 
 - `index.html` — page structure and element ids used by the script.
-- `script.js` — single source of truth for phrase content and the click handler; this is the file to edit for behavior changes.
+- `script.js` — loads `data/frases.json` when available and falls back to `inlineFrases`.
+- `data/frases.json` — new canonical storage for phrase objects.
 - `style.css` — styling and font import.
 
-If you'd like, I can prepare a small PR that moves `frases` to `data/frases.json` and updates `script.js` to fetch and render them (includes a simple guard for empty arrays and a local dev server instruction). Let me know and I'll implement it.
+I migrated the existing inline phrases into `data/frases.json` (converted ~40 items) and added an `images/` folder with 3 SVG placeholders. A few sample objects in `data/frases.json` point to those images (e.g., `images/gato-curioso.svg`, `images/perro-firulais.svg`, `images/sol-brillante.svg`).
+
+If you'd like further edits (rename image files, change image format to PNG, or adjust any titles), tell me which items to change.
 ## Purpose
 
 This repository is a tiny static single-page site (Spanish) that displays short children's reading snippets. These instructions give an AI coding agent the minimal, actionable knowledge to be productive editing, testing, or extending the project.

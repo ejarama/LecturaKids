@@ -1,0 +1,282 @@
+[
+  {
+    "id": "el-gato-curioso",
+    "title": "El gato curioso",
+    "text": "El gato salta por el jardín.\nPersigue una hoja que vuela sin fin.\nMueve su cola y sonríe feliz.",
+    "emoji": "🐱",
+    "image": "images/gato-curioso.jpg"
+  },
+  {
+    "id": "mi-perro-firulais",
+    "title": "Mi perro Firulais",
+    "text": "Firulais corre tras la pelota.\nLadra, brinca y se alborota.\nDespués descansa con su gran hueso.",
+    "emoji": "🐶",
+    "image": "images/perro-firulais.jpg"
+  },
+  {
+    "id": "el-sol-brillante",
+    "title": "El sol brillante",
+    "text": "El sol asoma por la ventana.\nDespierta el día y calienta la cama.\nLos pajaritos cantan sin parar.",
+    "emoji": "☀️",
+    "image": "images/sol-brillante.jpg"
+  },
+  {
+    "id": "la-luna-soadora",
+    "title": "La luna soñadora",
+    "text": "La luna sale a mirar el mar.\nBrilla y brilla sin descansar.\nCuenta estrellas en el cielo azul,\nmientras el niño duerme con tul.",
+    "emoji": "🌙",
+    "image": null
+  },
+  {
+    "id": "el-pez-dorado",
+    "title": "El pez dorado",
+    "text": "Nada el pez en su pecera,\ndando vueltas como en carrera.\nBurbujea feliz en su rincón,\njugando solo con su emoción.",
+    "emoji": "🐠",
+    "image": null
+  },
+  {
+    "id": "la-rana-del-charco",
+    "title": "La rana del charco",
+    "text": "Croa la rana en el pantano,\nsalta feliz con su hermano.\nEl agua brilla bajo la flor,\ny todo huele a puro color.",
+    "emoji": "🐸",
+    "image": null
+  },
+  {
+    "id": "la-mariposa-azul",
+    "title": "La mariposa azul",
+    "text": "Vuelo suave, voy por el aire,\nllevo colores para el baile.\nSoy mariposa, amiga del sol.",
+    "emoji": "🦋",
+    "image": null
+  },
+  {
+    "id": "pollito-travieso",
+    "title": "Pollito travieso",
+    "text": "El pollito sale a correr,\nsu mamá lo quiere esconder.\nPero él canta “pío, pío” sin fin,\ny busca migas en el jardín.",
+    "emoji": "🐥",
+    "image": null
+  },
+  {
+    "id": "da-de-lluvia",
+    "title": "Día de lluvia",
+    "text": "Cae la lluvia sobre mi casa,\nsalpica el suelo, moja la plaza.\nYo con mi capa salgo a saltar,\n¡qué divertido es chapotear!",
+    "emoji": "🌧️",
+    "image": null
+  },
+  {
+    "id": "la-tortuga-lenta",
+    "title": "La tortuga lenta",
+    "text": "Camina despacio, sin apuro,\nlleva su casa, todo seguro.\nPaso a paso, llega al muro.",
+    "emoji": "🐢",
+    "image": null
+  },
+  {
+    "id": "flor-del-campo",
+    "title": "Flor del campo",
+    "text": "La flor despierta con el sol,\nabre sus pétalos de color.\nUna abeja viene a bailar,\ny juntas se ponen a jugar.",
+    "emoji": "🌻",
+    "image": null
+  },
+  {
+    "id": "conejito-blanco",
+    "title": "Conejito blanco",
+    "text": "Salta el conejo en el prado verde,\ncome zanahorias y nunca se pierde.\nCuando anochece, feliz se duerme.",
+    "emoji": "🐰",
+    "image": null
+  },
+  {
+    "id": "mi-bicicleta",
+    "title": "Mi bicicleta",
+    "text": "Tengo una bici color limón,\nrueda rápido con emoción.\nSubo la loma, bajo veloz,\n¡qué divertido es ser veloz!",
+    "emoji": null,
+    "image": null
+  },
+  {
+    "id": "en-mi-casita",
+    "title": "En mi casita",
+    "text": "En mi casita hay un sillón,\nun gato, un libro y un rincón.\nAhí me siento con mi mamá,\na leer cuentos sin parar.",
+    "emoji": "🏠",
+    "image": null
+  },
+  {
+    "id": "pintando-colores",
+    "title": "Pintando colores",
+    "text": "Pinto un cielo, pinto el mar,\npinto un barco que quiere andar.\nPinto mi casa, mi corazón,\ntodo lo lleno de ilusión.",
+    "emoji": "🎨",
+    "image": null
+  },
+  {
+    "id": "arcoris-bonito",
+    "title": "Arcoíris bonito",
+    "text": "Después de la lluvia salió el sol,\ny el cielo pintó un gran color.\nRojo, verde, azul y gris, ¡qué feliz!",
+    "emoji": "🌈",
+    "image": null
+  },
+  {
+    "id": "mi-osito-de-peluche",
+    "title": "Mi osito de peluche",
+    "text": "Mi osito duerme junto a mí,\nle doy abrazos y soy feliz.\nMe cuida siempre al dormir.",
+    "emoji": "🧸",
+    "image": null
+  },
+  {
+    "id": "el-pajarito-cantor",
+    "title": "El pajarito cantor",
+    "text": "Canta el pajarito sobre la rama,\ndespierta la flor que estaba en cama.\nCon su trino dulce y sonoro,\nllena el bosque de amor y oro.",
+    "emoji": "🕊️",
+    "image": null
+  },
+  {
+    "id": "el-elefante-gris",
+    "title": "El elefante gris",
+    "text": "El elefante mueve su trompa,\ncamina lento, nunca tropieza.\nCon gran sonrisa y paso firme,\nlleva alegría donde camine.",
+    "emoji": "🐘",
+    "image": null
+  },
+  {
+    "id": "mi-manzana-roja",
+    "title": "Mi manzana roja",
+    "text": "Tengo una manzana roja y redonda,\nparece una bola muy hermosa.\nLe doy un mordisco y sabe a miel,\n¡qué rica fruta tengo en mi piel!",
+    "emoji": "🍎",
+    "image": null
+  },
+  {
+    "id": "el-pastel-de-cumpleaos",
+    "title": "El pastel de cumpleaños",
+    "text": "Hoy hay globos, risas y canción,\nporque llegó mi celebración.\nSoplo las velas con ilusión,\n¡feliz cumpleaños de corazón!",
+    "emoji": "🧁",
+    "image": null
+  },
+  {
+    "id": "en-la-playa",
+    "title": "En la playa",
+    "text": "El mar susurra con su voz,\nme moja los pies con ilusión.\nConstruyo castillos en la arena,\ny el sol me abraza sin pena.",
+    "emoji": "🌊",
+    "image": null
+  },
+  {
+    "id": "el-tren-viajero",
+    "title": "El tren viajero",
+    "text": "“Chucu chucu”, suena el tren,\nlleva maletas y un cartel.\nPasa montañas y un gran río,\n¡qué divertido viaje el mío!",
+    "emoji": "🚂",
+    "image": null
+  },
+  {
+    "id": "el-viento-del-campo",
+    "title": "El viento del campo",
+    "text": "Sopla el viento por la colina,\nmueve el árbol, juega con la espina.\nSilba suave, canta feliz,\ny me despeina la nariz.",
+    "emoji": "🍃",
+    "image": null
+  },
+  {
+    "id": "el-unicornio-brillante",
+    "title": "El unicornio brillante",
+    "text": "Tiene un cuerno lleno de luz,\nbrilla en el cielo color azul.\nCorre en las nubes, deja estrellas,\ny pinta el mundo de cosas bellas.",
+    "emoji": "🦄",
+    "image": null
+  },
+  {
+    "id": "la-ardilla-veloz",
+    "title": "La ardilla veloz",
+    "text": "Corre la ardilla por el tronco,\nsalta ligera, come pronto.\nGuarda nueces con emoción,\npara el invierno y su rincón.",
+    "emoji": "🐿️",
+    "image": null
+  },
+  {
+    "id": "hada-del-bosque",
+    "title": "Hada del bosque",
+    "text": "Pequeña hada, luz brillante,\nvuela ligera, siempre elegante.\nCon su varita llena de amor,\ncura las flores del dolor.",
+    "emoji": "🧚‍♀️",
+    "image": null
+  },
+  {
+    "id": "cisne-blanco",
+    "title": "Cisne blanco",
+    "text": "Nada el cisne sobre el lago,\nsu cuello largo, su paso mago.\nParece un sueño, parece un sol,\nrefleja el cielo con su color.",
+    "emoji": "🦢",
+    "image": null
+  },
+  {
+    "id": "el-mago-del-cuento",
+    "title": "El mago del cuento",
+    "text": "El mago tiene un sombrero azul,\nde él salen chispas y un tul.\nCon una risa hace brillar,\ntodo lo que puede soñar.",
+    "emoji": "🧙‍♂️",
+    "image": null
+  },
+  {
+    "id": "calcetines-perdidos",
+    "title": "Calcetines perdidos",
+    "text": "Uno en la cama, otro en el sillón,\nbuscan juntos su reunión.\nCuando se encuentran saltan de emoción,\n¡qué par tan lindo, qué diversión!",
+    "emoji": "🧦",
+    "image": "images/calcetines-perdidos.jpg"
+  },
+  {
+    "id": "el-loro-parlanchn",
+    "title": "El loro parlanchín",
+    "text": "Dice “hola” y dice “adiós”,\ncanta canciones con mi voz.\nEs mi amigo, mi confidente,\n¡qué loro más inteligente!",
+    "emoji": "🦜",
+    "image": null
+  },
+  {
+    "id": "la-semilla-nueva",
+    "title": "La semilla nueva",
+    "text": "Cae la semilla sobre la tierra,\nduerme tranquila, no se aterra.\nUn día crece, nace una flor,\nque llena el campo de color.",
+    "emoji": "🌼",
+    "image": null
+  },
+  {
+    "id": "la-brujita-amable",
+    "title": "La brujita amable",
+    "text": "No hace hechizos de mal humor,\nprepara sopas con mucho amor.\nSu gato negro la acompaña,\nvolando juntas por la montaña.",
+    "emoji": "🧙‍♀️",
+    "image": null
+  },
+  {
+    "id": "la-cometa-en-el-cielo",
+    "title": "La cometa en el cielo",
+    "text": "Sube mi cometa con el viento,\ngira, baila y va contento.\nTiene colores de corazón,\nque alegran toda la ocasión.",
+    "emoji": "🪁",
+    "image": null
+  },
+  {
+    "id": "abejita-trabajadora",
+    "title": "Abejita trabajadora",
+    "text": "La abejita va sin parar,\nde flor en flor quiere volar.\nHace miel con gran dulzura,\n¡qué linda es la naturaleza pura!",
+    "emoji": "🐝",
+    "image": null
+  },
+  {
+    "id": "la-nutria-del-ro",
+    "title": "La nutria del río",
+    "text": "Nada la nutria con su mamá,\njuegan juntas sin descansar.\nSe lanzan flores, se ríen las dos,\n¡qué día tan lindo les dio Dios!",
+    "emoji": "🦦",
+    "image": null
+  },
+  {
+    "id": "mi-jugo-favorito",
+    "title": "Mi jugo favorito",
+    "text": "Tomo juguito de maracuyá,\nrefresca mi boca, me hace bailar.\nTiene sabor a sol y canción,\nme llena el día de emoción.",
+    "emoji": "🧃",
+    "image": null
+  },
+  {
+    "id": "armando-el-rompecabezas",
+    "title": "Armando el rompecabezas",
+    "text": "Pieza a pieza voy poniendo,\ncolores bellos voy descubriendo.\nAl final miro y puedo ver,\n¡una ballena y un amanecer!",
+    "emoji": "🧩",
+    "image": null
+  },
+  {
+    "id": "noche-de-cuentos",
+    "title": "Noche de cuentos",
+    "text": "Mamá me lee antes de dormir,\nun cuento dulce para reír.\nSueño mundos por descubrir.",
+    "emoji": "🕯️",
+    "image": null
+  },
+  {
+    "id": "soando-despierto",
+    "title": "Soñando despierto",
+    "text": "Cierro los ojos, pienso en volar,\na un mundo nuevo quiero llegar.\nCon mis amigos voy a jugar,\n¡qué lindo es siempre imaginar!",
+    "emoji": "💫",
+    "image": null
+  }
+]
